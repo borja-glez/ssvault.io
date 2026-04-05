@@ -20,6 +20,8 @@ lite|svc=<service>|acct=<account|none>|ns=<namespace|none>|profile=<profileId>|c
 - `mode` — obligatorio
 - `version` — obligatoria, entero positivo
 
+`balanced` es el valor inicial por defecto. La UI también puede autoajustar la calibración según el hardware, pero el nivel final siempre pasa a ser explícito y queda fijado en el canonical ID. Cambiar la calibración implica cambiar el resultado derivado.
+
 ### NO entra en el ID canónico
 
 - `masterPassword`

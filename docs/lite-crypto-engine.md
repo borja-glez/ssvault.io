@@ -61,21 +61,21 @@ Se eligió `hash-wasm` porque:
 
 El nivel de calibración Argon2 **lo elige el usuario** en el formulario y forma parte del **canonical ID**. Esto garantiza determinismo cross-device: mismos inputs + mismo nivel de calibración = misma contraseña en cualquier dispositivo.
 
-### Sugerencia automática inicial
+### Valor por defecto y autoajuste
 
-Al abrir Lite por primera vez, el sistema sugiere un nivel basándose en señales del hardware:
+Lite arranca con `balanced` como **default seguro**. Además, la UI expone una acción para **autoajustar según hardware**, que recomienda y aplica un nivel basándose en señales del dispositivo:
 
 - `navigator.hardwareConcurrency`
 - `navigator.deviceMemory` cuando existe
 
-**Mapa de sugerencia:**
+**Mapa de sugerencia / autoajuste:**
 
 - `hc <= 2` o `mem <= 2 GiB` → `constrained`
 - `hc >= 12` y `mem >= 16 GiB` (o memoria no expuesta) → `max`
 - `hc >= 8` y `mem >= 8 GiB` (o memoria no expuesta) → `strong`
 - resto / sin señales fiables → `balanced` como **default seguro**
 
-La sugerencia es solo el valor inicial del campo. El usuario puede cambiarlo libremente.
+El usuario puede cambiarlo libremente en cualquier momento. Pero aquí está la parte importante: **cambiar la calibración cambia la contraseña o passphrase derivada**, porque ese nivel forma parte del canonical ID.
 
 ### Por qué es selección manual y no auto-adaptativa
 
@@ -89,6 +89,7 @@ La solución es hacer que el nivel de calibración sea un parámetro explícito 
 - **Ventaja**: el usuario tiene control explícito sobre el coste computacional.
 - **Costo**: el usuario debe recordar (o guardar en un perfil) qué nivel usa. Los perfiles exportados incluyen esta información.
 - **Costo**: un usuario en un dispositivo modesto podría elegir `max` y experimentar latencia alta. La UI muestra el nivel elegido y el hint recomienda consistencia entre dispositivos.
+- **Costo**: pulsar autoajuste en un dispositivo distinto puede mover el nivel a otro tier; si se acepta ese cambio, el resultado derivado también cambia.
 
 ## Composición criptográfica
 

@@ -12,7 +12,9 @@ Lite deterministically derives passwords and passphrases from a master password 
 - **Reactive derivation**: the result recalculates in real time with a 450 ms debounce, no generate button needed.
 - **3 profiles**: web (balanced), banking (conservative) and legacy (compatibility).
 - **2 modes**: password (configurable length + symbols) and passphrase (BIP39, 4-6 words).
-- **Adaptive calibration**: Argon2id adjusts memory (32-128 MiB) based on detected hardware and observed timing.
+- **Selectable calibration**: users can explicitly choose the Argon2id calibration profile. The default is `balanced`.
+- **Hardware auto-adjust**: an auto-adjust action can recommend and apply a calibration based on detected hardware and observed timing.
+- **Calibration is part of derivation**: changing the calibration changes the generated password or passphrase, so it must be treated as part of the credential recipe.
 - **Minimal persistence**: only preferences (localStorage) and non-secret profiles (IndexedDB). Export/import without secrets using `ssvault-lite-config` v1 format.
 
 See [`docs/lite-functional-model-v1.md`](docs/lite-functional-model-v1.md) for the domain contract and [`docs/lite-crypto-engine.md`](docs/lite-crypto-engine.md) for cryptographic decisions.

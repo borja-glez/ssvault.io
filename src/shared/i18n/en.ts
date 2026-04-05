@@ -234,14 +234,14 @@ export const en: Translations = {
 
     step2Title: '02 · Isolation & Calibration',
     step2Desc:
-      'Derivation prioritizes a Web Worker to isolate the master password from the main thread. If the Worker is unavailable or fails, it falls back honestly to the main thread reporting the fallback reason. There is no silent failure. The Argon2 calibration level is chosen by the user in the form and is part of the canonical ID, ensuring the same level produces the same result on any device.',
+      'Derivation prioritizes a Web Worker to isolate the master password from the main thread. If the Worker is unavailable or fails, it falls back honestly to the main thread reporting the fallback reason. There is no silent failure. Lite starts from balanced as the default level and offers a button to auto-adjust based on hardware, but the final level is still chosen in the form and becomes part of the canonical ID.',
     step2CalibTitle: 'Argon2id calibration tiers',
     step2Hardware:
-      'The initial value is suggested automatically based on the device hardware:',
+      'Balanced is the default starting value. If you use the auto-adjust button, Lite recommends a level based on the device hardware:',
     step2Low: '≤2 cores or ≤2 GiB',
     step2High: '≥12 cores + ≥16 GiB',
     step2Adaptive:
-      '. The user can change the level at any time. To get the same result on different devices, the same calibration level must be used.',
+      '. The user can change the level at any time. IMPORTANT: changing calibration changes the derived password or passphrase. To get the same result on different devices, the same calibration level must be used.',
 
     step3Title: '03 · Minimal Persistence',
     step3Desc:
@@ -263,7 +263,7 @@ export const en: Translations = {
     paramsDefault: 'The default profile is',
     paramsBalanced: 'balanced',
     paramsAdaptive:
-      '. The level is suggested based on hardware but the user chooses the final one. Same level = same result on any device.',
+      '. Balanced is the default starting point. The auto-adjust button can move the level based on hardware, but that level becomes part of the derivation recipe: same level = same result; different level = different result.',
 
     limitsTitle: 'Honest limits',
     limitsDesc:

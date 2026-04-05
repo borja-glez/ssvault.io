@@ -249,14 +249,14 @@ export const es: Translations = {
 
     step2Title: '02 · Aislamiento y calibración',
     step2Desc:
-      'La derivación prioriza Web Worker para aislar la master password del hilo principal. Si el Worker no está disponible o falla, cae con honestidad al hilo principal reportando el motivo del fallback. No hay fallo silencioso. El nivel de calibración Argon2 lo elige el usuario en el formulario y forma parte del canonical ID, garantizando que el mismo nivel produce el mismo resultado en cualquier dispositivo.',
+      'La derivación prioriza Web Worker para aislar la master password del hilo principal. Si el Worker no está disponible o falla, cae con honestidad al hilo principal reportando el motivo del fallback. No hay fallo silencioso. Lite parte de balanced como nivel por defecto y ofrece un botón para autoajustar según hardware, pero el nivel final lo fija el usuario en el formulario y forma parte del canonical ID.',
     step2CalibTitle: 'Niveles de calibración Argon2id',
     step2Hardware:
-      'El valor inicial se sugiere automáticamente según el hardware del dispositivo:',
+      'Balanced es el valor inicial por defecto. Si usas el botón de autoajuste, Lite recomienda un nivel según el hardware del dispositivo:',
     step2Low: '≤2 cores o ≤2 GiB',
     step2High: '≥12 cores + ≥16 GiB',
     step2Adaptive:
-      '. El usuario puede cambiar el nivel en cualquier momento. Para obtener el mismo resultado en distintos dispositivos, debe usarse el mismo nivel de calibración.',
+      '. El usuario puede cambiar el nivel en cualquier momento. OJO: cambiar la calibración cambia la contraseña o passphrase derivada. Para obtener el mismo resultado en distintos dispositivos, debe usarse el mismo nivel de calibración.',
 
     step3Title: '03 · Persistencia mínima',
     step3Desc:
@@ -278,7 +278,7 @@ export const es: Translations = {
     paramsDefault: 'El perfil por defecto es',
     paramsBalanced: 'balanced',
     paramsAdaptive:
-      '. El nivel se sugiere según el hardware pero el usuario elige el definitivo. Mismo nivel = mismo resultado en cualquier dispositivo.',
+      '. Balanced es el punto de partida por defecto. El botón de autoajuste puede cambiar el nivel según hardware, pero ese nivel pasa a formar parte de la derivación: mismo nivel = mismo resultado; nivel distinto = resultado distinto.',
 
     limitsTitle: 'Límites honestos',
     limitsDesc:
