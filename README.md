@@ -129,7 +129,7 @@ Runtime: `node ./dist/server/entry.mjs`
 ## Requirements
 
 - **Node 24+** (ESM strict)
-- **pnpm 10.29.1**
+- **pnpm 10.33.0**
 
 ## Notes
 

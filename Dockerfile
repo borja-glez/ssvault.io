@@ -19,7 +19,11 @@ COPY . .
 
 RUN pnpm build
 
-FROM node:24-alpine AS runtime
+FROM base AS prod-deps
+
+RUN pnpm install --frozen-lockfile --ignore-scripts=false --prod
+
+FROM node:24-alpine AS production
 
 ENV NODE_ENV=production
 ENV HOST=0.0.0.0
@@ -28,6 +32,7 @@ ENV PORT=3000
 WORKDIR /app
 
 COPY --from=build /app/dist ./dist
+COPY --from=prod-deps /app/node_modules ./node_modules
 
 EXPOSE 3000
 

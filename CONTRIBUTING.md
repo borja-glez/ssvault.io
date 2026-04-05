@@ -7,7 +7,7 @@ Thank you for your interest in contributing to ssvault.io! Every contribution is
 ### Prerequisites
 
 - **Node 24+** (ESM strict)
-- **pnpm 10.29.1**
+- **pnpm 10.33.0**
 - **Git**
 
 ### Setup
