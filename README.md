@@ -2,8 +2,8 @@
 
 Base repository for **ssvault / lite**, an OSS credential generator with local derivation, no backend and no secret persistence.
 
-- **Web oficial:** [ssvault.io](https://ssvault.io)
-- **Repositorio GitHub:** [borja-glez/ssvault.io](https://github.com/borja-glez/ssvault.io)
+- **Official website:** [ssvault.io](https://ssvault.io)
+- **GitHub repository:** [borja-glez/ssvault.io](https://github.com/borja-glez/ssvault.io)
 
 ## What Lite Does
 
