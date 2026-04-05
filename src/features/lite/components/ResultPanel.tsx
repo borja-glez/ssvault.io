@@ -37,7 +37,9 @@ export default function ResultPanel({
     : null;
 
   return (
-    <div class="surface-card p-5 overflow-hidden">
+    <div
+      class={`surface-card p-5 overflow-hidden ${result ? 'result-glow' : ''}`}
+    >
       {/* Top accent gradient */}
       <div class="h-[2px] bg-linear-to-r from-accent/30 via-accent/10 to-transparent -mx-5 -mt-5 mb-5" />
 

@@ -71,5 +71,23 @@ const ogImageUrl = toAbsoluteSiteUrl(ogImagePath);
       <slot />
     </main>
     <Footer t={t} />
+    <script>
+      document.addEventListener('astro:page-load', () => {
+        document.addEventListener('mousemove', (e) => {
+          const cards = document.querySelectorAll('.surface-card');
+          for (const card of cards) {
+            const rect = (card as HTMLElement).getBoundingClientRect();
+            (card as HTMLElement).style.setProperty(
+              '--mouse-x',
+              `${e.clientX - rect.left}px`,
+            );
+            (card as HTMLElement).style.setProperty(
+              '--mouse-y',
+              `${e.clientY - rect.top}px`,
+            );
+          }
+        });
+      });
+    </script>
   </body>
 </html>
