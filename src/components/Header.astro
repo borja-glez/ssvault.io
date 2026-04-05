@@ -1,0 +1,77 @@
+---
+import type { Locale, Translations } from '../shared/i18n';
+import { LOCALE_COOKIE, LOCALE_LABELS } from '../shared/i18n';
+
+interface Props {
+  locale: Locale;
+  t: Translations;
+}
+
+const { locale, t } = Astro.props;
+const currentPath = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === '/' ? currentPath === '/' : currentPath.startsWith(href);
+
+const navItems: { href: string; label: string }[] = [
+  { href: '/', label: t.nav.vault },
+  { href: '/docs', label: t.nav.docs },
+  { href: '/details', label: t.nav.details },
+];
+
+const otherLocale: Locale = locale === 'es' ? 'en' : 'es';
+---
+
+<header class="section-shell flex items-center justify-between py-5 lg:px-12">
+  <span class="font-mono text-sm font-medium tracking-[0.15em] text-accent">
+    ssvault / lite
+  </span>
+
+  <nav class="flex items-center gap-3 sm:gap-4 lg:gap-6">
+    {
+      navItems.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            'text-[13px] tracking-wide transition-colors duration-200',
+            isActive(link.href)
+              ? 'font-semibold text-accent'
+              : 'font-medium text-text-secondary hover:text-text-primary',
+          ]}
+          aria-current={isActive(link.href) ? 'page' : undefined}
+        >
+          {link.label}
+        </a>
+      ))
+    }
+
+    <button
+      id="locale-switcher"
+      type="button"
+      class="ml-2 rounded-[8px] border border-border-card bg-card px-2.5 py-1.5 font-mono text-[11px] font-semibold tracking-wider text-text-secondary transition-colors duration-200 hover:border-accent/30 hover:text-accent"
+      data-current={locale}
+      data-next={otherLocale}
+      data-cookie-name={LOCALE_COOKIE}
+      aria-label={`Switch to ${LOCALE_LABELS[otherLocale]}`}
+    >
+      {LOCALE_LABELS[otherLocale]}
+    </button>
+  </nav>
+</header>
+
+<div class="gradient-separator"></div>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const btn = document.getElementById('locale-switcher');
+    if (!btn) return;
+
+    btn.addEventListener('click', () => {
+      const next = btn.dataset.next;
+      const cookieName = btn.dataset.cookieName;
+      if (!next || !cookieName) return;
+
+      document.cookie = `${cookieName}=${next};path=/;max-age=31536000;SameSite=Lax`;
+      window.location.reload();
+    });
+  });
+</script>

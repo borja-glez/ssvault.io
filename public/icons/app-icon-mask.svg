@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">ssvault Lite maskable app icon</title>
+  <desc id="desc">Maskable placeholder icon for ssvault Lite.</desc>
+  <rect width="512" height="512" rx="160" fill="#030712" />
+  <path d="M176 168c0-17.673 14.327-32 32-32h96c17.673 0 32 14.327 32 32v56h-40v-32h-80v32h-40v-56Z" fill="#7dd3fc" />
+  <path d="M144 224c0-26.51 21.49-48 48-48h128c26.51 0 48 21.49 48 48v104c0 26.51-21.49 48-48 48H192c-26.51 0-48-21.49-48-48V224Z" fill="#111827" stroke="#38bdf8" stroke-width="24" />
+  <circle cx="256" cy="272" r="34" fill="#bae6fd" />
+  <rect x="244" y="272" width="24" height="76" rx="12" fill="#bae6fd" />
+</svg>

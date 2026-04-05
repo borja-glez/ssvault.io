@@ -1,0 +1,356 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getTranslations } from '../shared/i18n';
+import type { Locale } from '../shared/i18n';
+
+const locale = Astro.locals.locale as Locale;
+const t = getTranslations(locale);
+---
+
+<BaseLayout title={t.docs.title} canonicalPath="/docs">
+  <!-- Hero -->
+  <section class="section-shell pt-12 pb-8 lg:pt-16 lg:px-12">
+    <h1
+      class="font-headline text-2xl font-extrabold leading-[1.08] gradient-text sm:text-3xl md:text-4xl lg:text-[48px]"
+      style="max-width:720px"
+    >
+      {t.docs.heroLine1}<br />
+      {t.docs.heroLine2}<br />
+      {t.docs.heroLine3}
+    </h1>
+    <p class="mt-4 max-w-[640px] text-base text-text-muted leading-relaxed">
+      {t.docs.heroSub1}
+      {t.docs.heroSub2}
+    </p>
+  </section>
+
+  <!-- Content -->
+  <section class="section-shell pb-16 lg:px-12">
+    <div class="grid gap-7 xl:grid-cols-[1fr_380px] xl:items-start">
+      <!-- Left column -->
+      <div class="space-y-5">
+        <!-- Quick Start card -->
+        <article id="uso-rapido" class="surface-card p-6">
+          <span class="label-mono-accent">{t.docs.quickStartLabel}</span>
+          <h2 class="mt-3 font-headline text-xl font-bold text-text-primary">
+            {t.docs.quickStartTitle}
+          </h2>
+          <ol
+            class="mt-4 space-y-3 text-sm text-text-secondary leading-relaxed"
+          >
+            <li class="flex gap-3">
+              <span
+                class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent/10 text-xs font-bold text-accent"
+                >1</span
+              >
+              <span
+                ><strong class="text-text-primary">{t.docs.step1Title}</strong>
+                {t.docs.step1Desc}</span
+              >
+            </li>
+            <li class="flex gap-3">
+              <span
+                class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent/10 text-xs font-bold text-accent"
+                >2</span
+              >
+              <span
+                ><strong class="text-text-primary">{t.docs.step2Title}</strong>
+                {t.docs.step2Desc}</span
+              >
+            </li>
+            <li class="flex gap-3">
+              <span
+                class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent/10 text-xs font-bold text-accent"
+                >3</span
+              >
+              <span
+                ><strong class="text-text-primary">{t.docs.step3Title}</strong>
+                {t.docs.step3Desc}</span
+              >
+            </li>
+            <li class="flex gap-3">
+              <span
+                class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent/10 text-xs font-bold text-accent"
+                >4</span
+              >
+              <span
+                ><strong class="text-text-primary">{t.docs.step4Title}</strong>
+                {t.docs.step4Desc}</span
+              >
+            </li>
+          </ol>
+          <p class="mt-4 text-xs text-text-dimmed leading-relaxed">
+            {t.docs.quickStartNote}
+          </p>
+        </article>
+
+        <!-- Profiles + Rotation grid -->
+        <div id="perfiles" class="grid gap-4 sm:grid-cols-2">
+          <article
+            class="rounded-[14px] bg-input border border-border-subtle p-5"
+          >
+            <h3 class="font-headline text-base font-bold text-text-primary">
+              {t.docs.profilesTitle}
+            </h3>
+            <p class="mt-2 text-[13px] text-text-secondary leading-relaxed">
+              {t.docs.profilesDesc}
+            </p>
+            <div class="mt-4 space-y-2.5">
+              <div class="flex items-start gap-2.5">
+                <span
+                  class="mt-1.5 inline-block h-2 w-2 shrink-0 rounded-full bg-accent"
+                ></span>
+                <span class="text-xs text-text-secondary leading-relaxed"
+                  ><strong class="text-text-primary"
+                    >{t.docs.profileWebTitle}</strong
+                  > — {t.docs.profileWebDesc}</span
+                >
+              </div>
+              <div class="flex items-start gap-2.5">
+                <span
+                  class="mt-1.5 inline-block h-2 w-2 shrink-0 rounded-full bg-warning"
+                ></span>
+                <span class="text-xs text-text-secondary leading-relaxed"
+                  ><strong class="text-text-primary"
+                    >{t.docs.profileBankingTitle}</strong
+                  > — {t.docs.profileBankingDesc}</span
+                >
+              </div>
+              <div class="flex items-start gap-2.5">
+                <span
+                  class="mt-1.5 inline-block h-2 w-2 shrink-0 rounded-full bg-text-muted"
+                ></span>
+                <span class="text-xs text-text-secondary leading-relaxed"
+                  ><strong class="text-text-primary"
+                    >{t.docs.profileLegacyTitle}</strong
+                  > — {t.docs.profileLegacyDesc}</span
+                >
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="rounded-[14px] bg-input border border-border-subtle p-5"
+          >
+            <h3 class="font-headline text-base font-bold text-text-primary">
+              {t.docs.rotationTitle}
+            </h3>
+            <p class="mt-2 text-[13px] text-text-secondary leading-relaxed">
+              {t.docs.rotationDesc1}
+            </p>
+            <p class="mt-3 text-[13px] text-text-secondary leading-relaxed">
+              {t.docs.rotationDesc2}
+            </p>
+            <p class="mt-3 text-[13px] text-text-secondary leading-relaxed">
+              {t.docs.rotationDesc3}
+            </p>
+          </article>
+        </div>
+
+        <!-- Export / Import -->
+        <article id="exportacion" class="surface-card p-6">
+          <span class="label-mono-accent">{t.docs.exportLabel}</span>
+          <h2 class="mt-3 font-headline text-xl font-bold text-text-primary">
+            {t.docs.exportTitle}
+          </h2>
+          <p class="mt-3 text-sm text-text-secondary leading-relaxed">
+            {t.docs.exportDesc}
+            <code class="font-mono text-xs text-accent"
+              >{t.docs.exportFormat}</code
+            > v1. {t.docs.exportIncludes}
+          </p>
+          <ul class="mt-3 space-y-1.5 text-sm text-text-secondary">
+            <li class="flex items-start gap-2">
+              <span class="mt-1 text-accent">&#10003;</span>
+              <span>{t.docs.exportItem1}</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="mt-1 text-accent">&#10003;</span>
+              <span>{t.docs.exportItem2}</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="mt-1 text-accent">&#10003;</span>
+              <span>{t.docs.exportItem3}</span>
+            </li>
+          </ul>
+          <p class="mt-3 text-sm text-text-secondary leading-relaxed">
+            <strong class="text-text-primary">{t.docs.exportNever}</strong>: {
+              t.docs.exportNeverDesc
+            }
+          </p>
+          <p class="mt-3 text-sm text-text-secondary leading-relaxed">
+            {t.docs.exportImport}
+          </p>
+        </article>
+
+        <!-- Recovery -->
+        <article id="recuperacion" class="surface-card p-6">
+          <span class="label-mono-accent">{t.docs.recoveryLabel}</span>
+          <h2 class="mt-3 font-headline text-xl font-bold text-text-primary">
+            {t.docs.recoveryTitle}
+          </h2>
+          <p class="mt-3 text-sm text-text-secondary leading-relaxed">
+            {t.docs.recoveryDesc}
+          </p>
+          <div
+            class="mt-4 rounded-[12px] bg-well border border-border-subtle p-4"
+          >
+            <p class="font-mono text-xs text-accent leading-relaxed">
+              {t.docs.recoveryFormula}
+              <span class="text-text-muted"> &rarr; </span>
+              {t.docs.recoveryResult}
+            </p>
+          </div>
+          <p class="mt-4 text-sm text-text-secondary leading-relaxed">
+            {t.docs.recoveryNoSync}
+            <strong class="text-text-primary">{t.docs.recoveryExplain}</strong>
+          </p>
+          <p class="mt-3 text-sm text-danger/80 leading-relaxed">
+            {t.docs.recoveryWarning}
+          </p>
+        </article>
+
+        <!-- FAQ -->
+        <article class="surface-card p-6">
+          <h2 class="font-headline text-lg font-bold text-text-primary">
+            {t.docs.faqTitle}
+          </h2>
+
+          <div class="mt-4 space-y-5">
+            <div class="space-y-1.5">
+              <h3 class="font-headline text-sm font-semibold text-text-primary">
+                {t.docs.faq1Q}
+              </h3>
+              <p class="text-[13px] text-text-secondary leading-relaxed">
+                {t.docs.faq1A}
+              </p>
+            </div>
+
+            <div class="space-y-1.5">
+              <h3 class="font-headline text-sm font-semibold text-text-primary">
+                {t.docs.faq2Q}
+              </h3>
+              <p class="text-[13px] text-text-secondary leading-relaxed">
+                {t.docs.faq2A}
+              </p>
+            </div>
+
+            <div class="space-y-1.5">
+              <h3 class="font-headline text-sm font-semibold text-text-primary">
+                {t.docs.faq3Q}
+              </h3>
+              <p class="text-[13px] text-text-secondary leading-relaxed">
+                {t.docs.faq3A}
+              </p>
+            </div>
+
+            <div class="space-y-1.5">
+              <h3 class="font-headline text-sm font-semibold text-text-primary">
+                {t.docs.faq4Q}
+              </h3>
+              <p class="text-[13px] text-text-secondary leading-relaxed">
+                {t.docs.faq4A}
+              </p>
+            </div>
+
+            <div class="space-y-1.5">
+              <h3 class="font-headline text-sm font-semibold text-text-primary">
+                {t.docs.faq5Q}
+              </h3>
+              <p class="text-[13px] text-text-secondary leading-relaxed">
+                {t.docs.faq5A}
+              </p>
+            </div>
+
+            <div class="space-y-1.5">
+              <h3 class="font-headline text-sm font-semibold text-text-primary">
+                {t.docs.faq6Q}
+              </h3>
+              <p class="text-[13px] text-text-secondary leading-relaxed">
+                {t.docs.faq6A}
+              </p>
+            </div>
+
+            <div class="space-y-1.5">
+              <h3 class="font-headline text-sm font-semibold text-text-primary">
+                {t.docs.faq7Q}
+              </h3>
+              <p class="text-[13px] text-text-secondary leading-relaxed">
+                {t.docs.faq7A}
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Right column (sticky) -->
+      <aside class="xl:sticky xl:top-6 space-y-5">
+        <!-- Table of contents -->
+        <nav class="surface-card p-5">
+          <span class="label-mono-accent">{t.docs.tocLabel}</span>
+          <ul class="mt-4 space-y-3">
+            <li>
+              <a
+                href="#uso-rapido"
+                class="font-headline text-[15px] font-semibold text-text-primary hover:text-accent transition-colors"
+                >{t.docs.toc1}</a
+              >
+            </li>
+            <li>
+              <a
+                href="#perfiles"
+                class="font-headline text-[15px] font-semibold text-text-primary hover:text-accent transition-colors"
+                >{t.docs.toc2}</a
+              >
+            </li>
+            <li>
+              <a
+                href="#exportacion"
+                class="font-headline text-[15px] font-semibold text-text-primary hover:text-accent transition-colors"
+                >{t.docs.toc3}</a
+              >
+            </li>
+            <li>
+              <a
+                href="#recuperacion"
+                class="font-headline text-[15px] font-semibold text-text-primary hover:text-accent transition-colors"
+                >{t.docs.toc4}</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Important limit alert -->
+        <div class="surface-card p-5 border-l-2 border-l-accent/30">
+          <h3 class="font-headline text-[15px] font-bold text-accent">
+            {t.docs.limitTitle}
+          </h3>
+          <p class="mt-2 text-[13px] text-text-secondary leading-relaxed">
+            {t.docs.limitDesc}
+          </p>
+        </div>
+
+        <!-- Next reading -->
+        <div class="surface-card p-5">
+          <span class="label-mono-accent">{t.docs.nextLabel}</span>
+          <ul class="mt-4 space-y-3">
+            <li>
+              <a
+                href="/details"
+                class="font-headline text-sm font-semibold text-text-primary hover:text-accent transition-colors"
+                >{t.docs.nextDetails} &rarr;</a
+              >
+            </li>
+            <li>
+              <a
+                href="/"
+                class="font-headline text-sm font-semibold text-text-primary hover:text-accent transition-colors"
+                >{t.docs.nextGenerator} &rarr;</a
+              >
+            </li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

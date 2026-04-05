@@ -1,0 +1,25 @@
+{
+  "name": "ssvault Lite",
+  "short_name": "ssvault",
+  "description": "Derivación local real con Argon2id + HKDF-SHA-256, sin backend y sin persistencia de secretos.",
+  "lang": "es-ES",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#030712",
+  "theme_color": "#030712",
+  "icons": [
+    {
+      "src": "/icons/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/app-icon-mask.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+---
+import type { Translations } from '../shared/i18n';
+
+interface Props {
+  t: Translations;
+}
+
+const { t } = Astro.props;
+---
+
+<div class="gradient-separator"></div>
+
+<footer class="flex items-center justify-center px-4 py-6 sm:px-6 lg:px-12">
+  <span
+    class="font-mono text-[11px] font-normal tracking-[0.15em] text-text-dimmed"
+  >
+    {t.footer.copyright}
+  </span>
+</footer>

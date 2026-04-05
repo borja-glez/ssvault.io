@@ -1,0 +1,310 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getTranslations } from '../shared/i18n';
+import type { Locale } from '../shared/i18n';
+
+const locale = Astro.locals.locale as Locale;
+const t = getTranslations(locale);
+---
+
+<BaseLayout title={t.details.title} canonicalPath="/details">
+  <!-- Hero -->
+  <section class="section-shell pt-12 pb-8 lg:pt-16 lg:px-12">
+    <h1
+      class="font-headline text-2xl font-extrabold leading-[1.08] gradient-text sm:text-3xl md:text-4xl lg:text-[48px]"
+      style="max-width:720px"
+    >
+      {t.details.heroLine1}<br />
+      {t.details.heroLine2}<br />
+      {t.details.heroLine3}
+    </h1>
+    <p class="mt-4 max-w-[640px] text-base text-text-muted leading-relaxed">
+      {t.details.heroSub1}
+      {t.details.heroSub2}
+    </p>
+  </section>
+
+  <!-- Content -->
+  <section class="section-shell pb-16 lg:px-12">
+    <div class="grid gap-7 xl:grid-cols-[1fr_380px] xl:items-start">
+      <!-- Left column -->
+      <div class="space-y-5">
+        <!-- Architecture card -->
+        <article class="surface-card p-6">
+          <span class="label-mono-accent">{t.details.archLabel}</span>
+          <h2 class="mt-3 font-headline text-xl font-bold text-text-primary">
+            {t.details.archTitle}
+          </h2>
+          <p class="mt-3 text-sm text-text-secondary leading-relaxed">
+            {t.details.archDesc}
+          </p>
+          <div
+            class="mt-4 rounded-button bg-well border border-border-subtle p-4"
+          >
+            <p class="font-mono text-xs text-accent leading-relaxed">
+              masterPassword
+              <span class="text-text-muted">+</span>
+              canonicalId
+              <span class="text-text-muted">&rarr;</span>
+              Argon2id(salt=SHA256(prefix|canonicalId))
+              <span class="text-text-muted">&rarr;</span>
+              rootKey
+            </p>
+            <p class="mt-2 font-mono text-xs text-accent leading-relaxed">
+              rootKey
+              <span class="text-text-muted">&rarr;</span>
+              HKDF-SHA-256(info="password"|"passphrase"|"visual")
+              <span class="text-text-muted">&rarr;</span>
+              output
+            </p>
+          </div>
+          <p class="mt-4 text-xs text-text-dimmed leading-relaxed">
+            {t.details.archSaltNote}
+          </p>
+        </article>
+
+        <!-- Step 1 -->
+        <article
+          class="rounded-[14px] bg-input border border-border-subtle p-5"
+        >
+          <h3 class="font-headline text-[15px] font-bold text-text-primary">
+            {t.details.step1Title}
+          </h3>
+          <p class="mt-2 text-[13px] text-text-secondary leading-relaxed">
+            {t.details.step1Desc}
+          </p>
+          <p
+            class="mt-3 rounded-[8px] bg-well px-3 py-2 font-mono text-xs text-accent break-all"
+          >
+            lite|svc=github|acct=alice|ns=personal|profile=web|cal=balanced|mode=password|v=1
+          </p>
+          <p class="mt-3 text-[13px] text-text-secondary leading-relaxed">
+            {t.details.step1Fallbacks}
+            <code class="font-mono text-xs text-accent"
+              >{t.details.step1FallbackService}</code
+            >, cuenta &rarr;
+            <code class="font-mono text-xs text-accent"
+              >{t.details.step1FallbackAccount}</code
+            >, namespace &rarr;
+            <code class="font-mono text-xs text-accent"
+              >{t.details.step1FallbackNs}</code
+            >{t.details.step1FallbackEnd}
+          </p>
+        </article>
+
+        <!-- Step 2 -->
+        <article
+          class="rounded-[14px] bg-input border border-border-subtle p-5"
+        >
+          <h3 class="font-headline text-[15px] font-bold text-text-primary">
+            {t.details.step2Title}
+          </h3>
+          <p class="mt-2 text-[13px] text-text-secondary leading-relaxed">
+            {t.details.step2Desc}
+          </p>
+
+          <div class="mt-4 space-y-2">
+            <p class="text-xs font-semibold text-text-primary">
+              {t.details.step2CalibTitle}
+            </p>
+            <div class="space-y-1.5">
+              <div
+                class="flex items-center justify-between rounded-[8px] bg-well px-3 py-2"
+              >
+                <span class="font-mono text-xs text-text-primary"
+                  >constrained</span
+                >
+                <span class="font-mono text-xs text-text-muted"
+                  >32 MiB · t=3 · p=1</span
+                >
+              </div>
+              <div
+                class="flex items-center justify-between rounded-[8px] bg-well px-3 py-2"
+              >
+                <span class="font-mono text-xs text-accent">balanced</span>
+                <span class="font-mono text-xs text-text-muted"
+                  >64 MiB · t=3 · p=1</span
+                >
+              </div>
+              <div
+                class="flex items-center justify-between rounded-[8px] bg-well px-3 py-2"
+              >
+                <span class="font-mono text-xs text-text-primary">strong</span>
+                <span class="font-mono text-xs text-text-muted"
+                  >96 MiB · t=3 · p=1</span
+                >
+              </div>
+              <div
+                class="flex items-center justify-between rounded-[8px] bg-well px-3 py-2"
+              >
+                <span class="font-mono text-xs text-text-primary">max</span>
+                <span class="font-mono text-xs text-text-muted"
+                  >128 MiB · t=4 · p=1</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <p class="mt-4 text-[13px] text-text-secondary leading-relaxed">
+            {t.details.step2Hardware}
+            <strong class="text-text-primary">{t.details.step2Low}</strong>
+            &rarr; constrained;
+            <strong class="text-text-primary">{t.details.step2High}</strong> &rarr;
+            max{t.details.step2Adaptive}
+          </p>
+        </article>
+
+        <!-- Step 3 -->
+        <article
+          class="rounded-[14px] bg-input border border-border-subtle p-5"
+        >
+          <h3 class="font-headline text-[15px] font-bold text-text-primary">
+            {t.details.step3Title}
+          </h3>
+          <p class="mt-2 text-[13px] text-text-secondary leading-relaxed">
+            {t.details.step3Desc}
+          </p>
+
+          <div class="mt-4 space-y-2">
+            <div
+              class="flex items-start gap-3 rounded-[8px] bg-well px-3 py-2.5"
+            >
+              <span class="font-mono text-xs text-accent shrink-0 mt-0.5"
+                >localStorage</span
+              >
+              <span class="text-xs text-text-secondary"
+                >{t.details.step3LocalStorage}</span
+              >
+            </div>
+            <div
+              class="flex items-start gap-3 rounded-[8px] bg-well px-3 py-2.5"
+            >
+              <span class="font-mono text-xs text-accent shrink-0 mt-0.5"
+                >IndexedDB</span
+              >
+              <span class="text-xs text-text-secondary"
+                >{t.details.step3IndexedDB}</span
+              >
+            </div>
+            <div
+              class="flex items-start gap-3 rounded-[8px] bg-well px-3 py-2.5"
+            >
+              <span class="font-mono text-xs text-accent shrink-0 mt-0.5"
+                >Export/Import</span
+              >
+              <span class="text-xs text-text-secondary"
+                >{t.details.step3Export}</span
+              >
+            </div>
+          </div>
+
+          <p class="mt-4 text-xs text-text-dimmed leading-relaxed">
+            {t.details.step3Contract}
+          </p>
+        </article>
+
+        <!-- CSP and hardening -->
+        <article
+          class="rounded-[14px] bg-input border border-border-subtle p-5"
+        >
+          <h3 class="font-headline text-[15px] font-bold text-text-primary">
+            {t.details.step4Title}
+          </h3>
+          <p class="mt-2 text-[13px] text-text-secondary leading-relaxed">
+            {t.details.step4Desc}
+          </p>
+          <div class="mt-3 space-y-1.5 text-xs text-text-secondary">
+            <p>
+              <code class="font-mono text-accent">script-src</code>: no permite <code
+                class="font-mono">unsafe-inline</code
+              >. Incluye <code class="font-mono">wasm-unsafe-eval</code> para hash-wasm.
+            </p>
+            <p>
+              <code class="font-mono text-accent">style-src</code>: permite <code
+                class="font-mono">unsafe-inline</code
+              > (atributos inline del visual fingerprint).
+            </p>
+            <p>
+              <code class="font-mono text-accent">worker-src</code>: <code
+                class="font-mono">self blob:</code
+              > para bundling de workers.
+            </p>
+            <p>
+              <code class="font-mono text-accent">frame-ancestors</code>: <code
+                class="font-mono">none</code
+              > (no se puede embeber en iframes).
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <!-- Right column (sticky) -->
+      <aside class="xl:sticky xl:top-6 space-y-5">
+        <!-- Base params card -->
+        <div class="surface-card p-5">
+          <span class="label-mono-accent">{t.details.paramsLabel}</span>
+          <ul class="mt-4 space-y-3">
+            <li class="font-mono text-sm font-medium text-text-primary">
+              Argon2id &middot; 64 MiB &middot; t=3 &middot; p=1
+            </li>
+            <li class="font-mono text-sm font-medium text-text-primary">
+              HKDF-SHA-256 por contexto
+            </li>
+            <li class="font-mono text-sm font-medium text-text-primary">
+              Wordlist BIP39 para passphrase
+            </li>
+            <li class="font-mono text-sm font-medium text-text-primary">
+              Clipboard cleanup best-effort
+            </li>
+          </ul>
+          <p class="mt-4 text-xs text-text-dimmed leading-relaxed">
+            {t.details.paramsDefault}
+            <code class="font-mono text-accent">{t.details.paramsBalanced}</code
+            >{t.details.paramsAdaptive}
+          </p>
+        </div>
+
+        <!-- Honest limits -->
+        <div class="surface-card p-5 border-l-2 border-l-accent/30">
+          <h3 class="font-headline text-[15px] font-bold text-accent">
+            {t.details.limitsTitle}
+          </h3>
+          <p class="mt-2 text-[13px] text-text-secondary leading-relaxed">
+            {t.details.limitsDesc}
+          </p>
+          <ul class="mt-3 space-y-1.5 text-xs text-text-muted">
+            <li>
+              &bull; {t.details.limit1}
+            </li>
+            <li>&bull; {t.details.limit2}</li>
+            <li>
+              &bull; {t.details.limit3}
+            </li>
+            <li>&bull; {t.details.limit4}</li>
+          </ul>
+        </div>
+
+        <!-- Links -->
+        <div class="surface-card p-5">
+          <span class="label-mono-accent">{t.details.refLabel}</span>
+          <ul class="mt-4 space-y-3">
+            <li>
+              <a
+                href="/docs"
+                class="font-headline text-sm font-semibold text-text-primary hover:text-accent transition-colors"
+                >{t.details.refDocs} &rarr;</a
+              >
+            </li>
+            <li>
+              <a
+                href="/"
+                class="font-headline text-sm font-semibold text-text-primary hover:text-accent transition-colors"
+                >{t.details.refGenerator} &rarr;</a
+              >
+            </li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

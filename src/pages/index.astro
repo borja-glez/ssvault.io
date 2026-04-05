@@ -1,17 +1,36 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getTranslations } from '../shared/i18n';
+import type { Locale } from '../shared/i18n';
+import LiteGeneratorIsland from '../features/lite/components/LiteGeneratorIsland';
 
+const locale = Astro.locals.locale as Locale;
+const t = getTranslations(locale);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title={t.index.title}>
+  <section class="section-shell pt-12 pb-8 lg:pt-16 lg:px-12">
+    <h1
+      class="font-headline text-2xl font-extrabold leading-[1.08] gradient-text sm:text-3xl md:text-4xl lg:text-[48px]"
+      style="max-width:720px"
+    >
+      {t.index.heroLine1}<br />
+      {t.index.heroLine2}<br />
+      {t.index.heroLine3}
+    </h1>
+    <p class="mt-4 max-w-[640px] text-base leading-relaxed text-text-muted">
+      {t.index.heroSub1}
+      {t.index.heroSub2}
+    </p>
+  </section>
+
+  <section
+    class="section-shell pb-16 lg:px-12"
+    aria-labelledby="lite-generator-title"
+  >
+    <h2 id="lite-generator-title" class="sr-only">
+      {t.index.generatorSr}
+    </h2>
+    <LiteGeneratorIsland client:idle locale={locale} />
+  </section>
+</BaseLayout>

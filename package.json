@@ -1,17 +1,52 @@
 {
   "name": "ssvault.io",
+  "description": "Foundation for the ssvault.io OSS password manager.",
   "type": "module",
   "version": "0.0.1",
+  "packageManager": "pnpm@10.29.1",
   "engines": {
-    "node": ">=22.12.0"
+    "node": ">=24.0.0"
   },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "start": "node ./dist/server/entry.mjs",
     "preview": "astro preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "typecheck": "astro check",
+    "check": "pnpm lint && pnpm format:check && pnpm typecheck",
+    "prepare:hooks": "node ./scripts/setup-hooks.mjs",
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^6.1.3"
+    "@astrojs/node": "10.0.4",
+    "@astrojs/preact": "5.1.1",
+    "@scure/bip39": "2.0.1",
+    "@tailwindcss/vite": "4.2.2",
+    "astro": "6.1.3",
+    "hash-wasm": "4.12.0",
+    "preact": "10.29.1",
+    "tailwindcss": "4.2.2"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.8",
+    "@commitlint/cli": "20.5.0",
+    "@commitlint/config-conventional": "20.5.0",
+    "@eslint/js": "10.0.1",
+    "@typescript-eslint/parser": "8.58.0",
+    "eslint": "10.1.0",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-astro": "1.6.0",
+    "globals": "17.4.0",
+    "prettier": "3.8.1",
+    "prettier-plugin-astro": "0.14.1",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.58.0",
+    "vitest": "3.2.4"
   }
 }
