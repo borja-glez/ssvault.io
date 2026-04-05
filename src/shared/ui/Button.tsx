@@ -9,11 +9,11 @@ type ButtonProps = ComponentProps<'button'> & {
 };
 
 const variantClasses: Record<ButtonVariant, string> = {
-  primary: 'btn-gradient rounded-[12px]',
+  primary: 'btn-gradient rounded-button',
   secondary:
-    'border border-border-card bg-card text-text-primary rounded-[12px] hover:border-ghost-border',
+    'border border-border-card bg-card text-text-primary rounded-button hover:border-ghost-border',
   ghost:
-    'bg-ghost-bg border border-ghost-border text-text-secondary rounded-[12px] hover:bg-ghost-border/50',
+    'bg-ghost-bg border border-ghost-border text-text-secondary rounded-button hover:bg-ghost-border/50',
 };
 
 export default function Button({

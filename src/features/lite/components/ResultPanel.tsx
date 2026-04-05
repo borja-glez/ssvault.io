@@ -39,7 +39,7 @@ export default function ResultPanel({
   return (
     <div class="surface-card p-5 overflow-hidden">
       {/* Top accent gradient */}
-      <div class="h-[2px] bg-gradient-to-r from-accent/30 via-accent/10 to-transparent -mx-5 -mt-5 mb-5" />
+      <div class="h-[2px] bg-linear-to-r from-accent/30 via-accent/10 to-transparent -mx-5 -mt-5 mb-5" />
 
       {/* Header */}
       <div class="flex items-center justify-between mb-4">
@@ -103,7 +103,7 @@ export default function ResultPanel({
       {/* Copy button */}
       <button
         type="button"
-        class="btn-gradient rounded-[12px] py-4 text-sm font-semibold w-full mt-4 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+        class="btn-gradient rounded-button py-4 text-sm font-semibold w-full mt-4 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
         disabled={!result}
         onClick={() => void onCopy()}
       >

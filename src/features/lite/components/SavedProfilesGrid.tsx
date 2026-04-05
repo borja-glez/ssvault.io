@@ -64,7 +64,7 @@ export default function SavedProfilesGrid({
             return (
               <div
                 key={profile.id}
-                class="bg-input border border-border-subtle rounded-[12px] p-4 flex flex-col gap-2.5 transition-colors hover:border-ghost-border animate-fade-in-up"
+                class="bg-input border border-border-subtle rounded-button p-4 flex flex-col gap-2.5 transition-colors hover:border-ghost-border animate-fade-in-up"
                 style={{
                   animationDelay: `${index * 75}ms`,
                   animationFillMode: 'backwards',
