@@ -95,7 +95,7 @@ export default function DerivationForm({
         <Field id="master-password" label={t.form.masterPassword}>
           <div class="relative">
             <Input
-              autocomplete="current-password"
+              autocomplete="off"
               id="master-password"
               name="masterPassword"
               onInput={(e) =>
