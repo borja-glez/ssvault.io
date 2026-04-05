@@ -2,6 +2,9 @@
 
 Base repository for **ssvault / lite**, an OSS credential generator with local derivation, no backend and no secret persistence.
 
+- **Web oficial:** [ssvault.io](https://ssvault.io)
+- **Repositorio GitHub:** [borja-glez/ssvault.io](https://github.com/borja-glez/ssvault.io)
+
 ## What Lite Does
 
 Lite deterministically derives passwords and passphrases from a master password and a service identifier. The cryptographic engine runs Argon2id + HKDF-SHA-256 in the browser, preferably inside an isolated Web Worker. It never stores the master password or derived results.

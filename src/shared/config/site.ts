@@ -4,6 +4,8 @@ export const navLinks = [
   { href: '/details', label: 'Details' },
 ] as const;
 
+export const githubUrl = 'https://github.com/borja-glez/ssvault.io';
+
 export const siteConfig = {
   name: 'ssvault Lite',
   siteName: 'ssvault.io',

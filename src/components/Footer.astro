@@ -6,14 +6,31 @@ interface Props {
 }
 
 const { t } = Astro.props;
+const githubUrl = 'https://github.com/borja-glez/ssvault.io';
 ---
 
 <div class="gradient-separator"></div>
 
-<footer class="flex items-center justify-center px-4 py-6 sm:px-6 lg:px-12">
+<footer
+  class="flex items-center justify-center gap-3 px-4 py-6 sm:px-6 lg:px-12"
+>
   <span
     class="font-mono text-[11px] font-normal tracking-[0.15em] text-text-dimmed"
   >
     {t.footer.copyright}
   </span>
+
+  <a
+    href={githubUrl}
+    target="_blank"
+    rel="noreferrer"
+    aria-label="GitHub"
+    class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border-card bg-card text-text-secondary transition-colors duration-200 hover:border-accent/30 hover:text-accent"
+  >
+    <svg aria-hidden="true" viewBox="0 0 24 24" class="h-4 w-4 fill-current">
+      <path
+        d="M12 2C6.477 2 2 6.589 2 12.248c0 4.526 2.865 8.367 6.839 9.723.5.095.682-.221.682-.492 0-.243-.009-.888-.014-1.743-2.782.617-3.369-1.37-3.369-1.37-.455-1.177-1.11-1.49-1.11-1.49-.908-.636.069-.623.069-.623 1.004.072 1.532 1.054 1.532 1.054.892 1.56 2.341 1.11 2.91.849.091-.663.349-1.11.635-1.365-2.221-.259-4.555-1.137-4.555-5.061 0-1.118.39-2.032 1.029-2.748-.103-.259-.446-1.302.098-2.714 0 0 .84-.276 2.75 1.05A9.303 9.303 0 0 1 12 6.846c.85.004 1.705.118 2.504.346 1.909-1.326 2.748-1.05 2.748-1.05.546 1.412.203 2.455.1 2.714.64.716 1.027 1.63 1.027 2.748 0 3.934-2.337 4.799-4.565 5.053.359.319.679.947.679 1.909 0 1.378-.012 2.489-.012 2.828 0 .273.18.591.688.491C19.138 20.611 22 16.772 22 12.248 22 6.589 17.523 2 12 2Z"
+      ></path>
+    </svg>
+  </a>
 </footer>
